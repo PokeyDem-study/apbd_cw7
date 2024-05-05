@@ -1,21 +1,20 @@
 using Apbd_cw7.Models.DTOs;
-using Apbd_cw7.Repositories;
 using Microsoft.AspNetCore.Mvc;
-
+using Apbd_cw7.Repositories;
 namespace Apbd_cw7.Controller;
 
 [ApiController]
 [Route("api/[controller]")]
-public class WarehousesController : ControllerBase
+public class Warehouses2Controller : ControllerBase
 {
     private readonly IWarehousesRepository _warehousesRepository;
-    public WarehousesController(IWarehousesRepository warehousesRepository)
+    public Warehouses2Controller(IWarehousesRepository warehousesRepository)
     {
         _warehousesRepository = warehousesRepository;
     }
     
     [HttpPost]
-    [Route("api/warehouses")]
+    [Route("api/warehouses2")]
     public async Task<IActionResult> RefillProducts(WarehouseProductDTO warehouseProductDto)
     {
         if (!await _warehousesRepository.DoesProductExists(warehouseProductDto.IdProduct))
